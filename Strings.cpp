@@ -1,12 +1,47 @@
 #include <iostream>
 
 
+int valid(char* name) {
+
+	int i;
+
+	for(i = 0; name[i] != '\0'; i++){
+	
+		if (!(name[i] >= 'A' && name[i] <= 'Z') && !(name[i] >= 'a' && name[i] <= 'z') && !(name[i] >= '48' && name[i] <= '57')) {
+
+			//this is false
+			return 0;
+		}
+	
+	}
+	//this is true;
+	return 1;
+};
+
+
 
 
 int main() {
 
 
-	
+	//validate a string
+	//scan and check each alphabet
+
+	char A[] = "Hel1lo";
+
+
+	 
+
+	if (valid(A)) {
+
+		std::cout << "Valid String";
+	}
+	else {
+		std::cout << "Invalid stirng";
+	}
+
+
+
 	return 0;
 
 
@@ -293,6 +328,58 @@ char A[] = "How are   you";
 
 
 
+
+
+
+
+#include <iostream>
+
+
+int valid(char* name) {
+
+	int i;
+
+	for(i = 0; name[i] != '\0'; i++){
+
+		if (!(name[i] >= 'A' && name[i] <= 'Z') && !(name[i] >= 'a' && name[i] <= 'z') && !(name[i] >= '48' && name[i] <= '57')) {
+
+			//this is false
+			return 0;
+		}
+
+	}
+	//this is true;
+	return 1;
+};
+
+
+
+
+int main() {
+
+
+	//validate a string
+	//scan and check each alphabet
+
+	char A[] = "Hel1lo";
+
+
+
+
+	if (valid(A)) {
+
+		std::cout << "Valid String";
+	}
+	else {
+		std::cout << "Invalid stirng";
+	}
+
+
+
+	return 0;
+
+
+};
 
 
 
