@@ -1,47 +1,41 @@
 #include <iostream>
 
 
-int valid(char* name) {
-
-	int i;
-
-	for(i = 0; name[i] != '\0'; i++){
-	
-		if (!(name[i] >= 'A' && name[i] <= 'Z') && !(name[i] >= 'a' && name[i] <= 'z') && !(name[i] >= '48' && name[i] <= '57')) {
-
-			//this is false
-			return 0;
-		}
-	
-	}
-	//this is true;
-	return 1;
-};
 
 
 
 
 int main() {
 
+	//Reverse char by swap
+	//We need to scan, know the length
+	
+	char A[] = "Python";
 
-	//validate a string
-	//scan and check each alphabet
-
-	char A[] = "Hel1lo";
-
-
-	 
-
-	if (valid(A)) {
-
-		std::cout << "Valid String";
-	}
-	else {
-		std::cout << "Invalid stirng";
-	}
+	//temp char variable
+	char t;
 
 
+	//At the end
+	int j;
+	//At the beginning
+	int i;
 
+	for (j = 0; A[j] != '\0'; j++) {
+	};
+
+	j = j - 1;
+
+	for (i = 0; i < j; i++, j--) {
+
+		//need a temp in order to swap
+		t = A[j];
+		A[j] = A[i];
+		A[i] = t;
+
+	};
+
+	std::cout << A;
 	return 0;
 
 
@@ -369,7 +363,7 @@ int main() {
 	if (valid(A)) {
 
 		std::cout << "Valid String";
-	}
+	}u
 	else {
 		std::cout << "Invalid stirng";
 	}
@@ -392,6 +386,48 @@ int main() {
 
 
 
+int valid(char* name) {
+
+	int i;
+
+	for(i = 0; name[i] != '\0'; i++){
+
+		if (!(name[i] >= 'A' && name[i] <= 'Z') && !(name[i] >= 'a' && name[i] <= 'z') && !(name[i] >= '48' && name[i] <= '57')) {
+
+			//this is false
+			return 0;
+		}
+
+	}
+	//this is true;
+	return 1;
+};
+
+
+
+
+int main() {
+
+
+	//validate a string
+	//scan and check each alphabet
+
+	char A[] = "Hel1lo";
+
+
+
+
+	if (valid(A)) {
+
+		std::cout << "Valid String";
+	}
+	else {
+		std::cout << "Invalid stirng";
+	}
+
+
+
+	return 0;
 
 
 
@@ -406,7 +442,41 @@ int main() {
 
 
 
+	//Reversing a string
 
+
+
+	// array 1
+	char A[] = "Python";
+
+	//array 2 which is where we want to copy the reverse
+	char B[7];
+
+	//index i which traverses through the first array
+	int i;
+
+	//index j which traverses through the second array
+	int j;
+	for (i = 0; A[i] != '\0'; i++) {
+
+
+	}
+
+	//This is because after our for loop, i is going to be at \0, so we want to get the last letter so i-1
+	i = i - 1;
+
+	//when i reaches -1 we know that we are done traversing through array one and thats when we can stop
+	//we also know at this point we can add \0 to array 2
+	for (j = 0; i >= 0; j++,i--) {
+
+		B[j] = A[i];
+
+	}
+	B[j] = '\0';
+
+
+
+	std::cout << B;
 
 
 
