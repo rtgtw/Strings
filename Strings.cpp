@@ -30,39 +30,47 @@ void printASCII() {
 int main() {
 
 	
+//Look for a duplicate inside of a string using bitwise operators AND and OR
+
+//Create string that we will test to see if there is a duplicate 
 	char String1[] = "finding";
 
-	//Create a hash table the length of lower case alphabets (26)
-	//Initialize all values to 0
-	int Hashtable[26] = { 0 };
 
-	//Create a for loop that iterates through the string, and incrementing the hashtable to keep count of the letters
-	//while the index does not equal the null character which is the end of the string
+
+//Create an integer variable which we will use to insert bits to compare with the string
+// 4 bytes so 32 bits in total, initialize it to 0, to have all the bits be 0
+	int bitwiseMap = 0;
+
+//We need another integer variable that we will store the value of 1 or 0
+	int valueStore = 0;
+
+//Create a for loop which will iterate through the string 
+//Then we will set the bitwiseMap to 1 and shift the 1 to equal the letter of the string to set it inside of the bitwise map
+//If the letter already has a 1 then we know it is a duplicate and can print the value
 	for (int i = 0; String1[i] != '\0'; i++) {
-		
-		//coult also just do += 1 but i want to type it out
-		Hashtable[String1[i] - 'a'] = Hashtable[String1[i] - 'a']++;
-		
-	 };
+	
+		//set the bitwise map to 1
+		bitwiseMap = 1;
 
-	for (int i = 0; i < 26; i++) {
-		std::cout << Hashtable[i] << '\n';
-	}
+		//find out which letter we are on, shift the bitwisemap 1 to that location and determine if it is 1 or 0
+		//if it is 0 then we want to input 1 to represent a hit, if it is 1 then we want to print duplicate since its a duplicate
+		//Shift 1 to String1[i] - 97 spaces, then we want that to equal the new bitwiseMap value
+		bitwiseMap = bitwiseMap << (String1[i] - 97);
 
-	//Extract the duplicates from the hashtable
+		//Now the value 1 is shifted inside of bitwiseMap, compare it to valueStore, if 0 is there then include 1, if 1 is there then say its a duplicate
+		//We can use AND bitwise operator &, to determine if its on or not, if its 0 then its going to be off, if its 1 then its going to be on
+		if ((bitwiseMap & valueStore) > 0) {
 
-	for (int i = 0; i < 26; i++) {
+			std::cout << String1[i] << " is a duplicate." << '\n';
 
-
-		if (Hashtable[i] > 1) {
-			std::cout << "Duplicate:  " << i + 97 <<'\n';
-
-			char Duplicate = i + 97;
-
-			std::cout << "Duplicate letter: " << Duplicate << '\n';
 		}
-	}
+		else {
 
+			valueStore = (bitwiseMap | valueStore);
+		}
+	
+	
+		};
 
 
 
@@ -105,6 +113,43 @@ int main() {
 * 
 * 
 //---------------------------------------------------------------------------------//
+
+void printASCII() {
+
+	char value = 'a';
+
+	while (value != '!') {
+		std::cout << "Enter a value: ";
+		std::cin >> value;
+
+		std::cout << "ASCII Code: " << static_cast<int>(value) << '\n';
+		std::cout << "press \'!\' to quit" << '\n' << '\n';
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //char temp;
 
@@ -615,6 +660,41 @@ int main() {
 
 
 
+int main() {
+
+
+	char String1[] = "finding";
+
+	//Create a hash table the length of lower case alphabets (26)
+	//Initialize all values to 0
+	int Hashtable[26] = { 0 };
+
+	//Create a for loop that iterates through the string, and incrementing the hashtable to keep count of the letters
+	//while the index does not equal the null character which is the end of the string
+	for (int i = 0; String1[i] != '\0'; i++) {
+
+		//coult also just do += 1 but i want to type it out
+		Hashtable[String1[i] - 'a'] = Hashtable[String1[i] - 'a']++;
+
+	 };
+
+	for (int i = 0; i < 26; i++) {
+		std::cout << Hashtable[i] << '\n';
+	}
+
+	//Extract the duplicates from the hashtable
+
+	for (int i = 0; i < 26; i++) {
+
+
+		if (Hashtable[i] > 1) {
+			std::cout << "Duplicate:  " << i + 97 <<'\n';
+
+			char Duplicate = i + 97;
+
+			std::cout << "Duplicate letter: " << Duplicate << '\n';
+		}
+	}
 
 
 
@@ -627,6 +707,58 @@ int main() {
 
 
 
+//Look for a duplicate inside of a string using bitwise operators AND and OR
+
+//Create string that we will test to see if there is a duplicate
+	char String1[] = "finding";
+
+
+
+//Create an integer variable which we will use to insert bits to compare with the string
+// 4 bytes so 32 bits in total, initialize it to 0, to have all the bits be 0
+	int bitwiseMap = 0;
+
+//We need another integer variable that we will store the value of 1 or 0
+	int valueStore = 0;
+
+//Create a for loop which will iterate through the string
+//Then we will set the bitwiseMap to 1 and shift the 1 to equal the letter of the string to set it inside of the bitwise map
+//If the letter already has a 1 then we know it is a duplicate and can print the value
+	for (int i = 0; String1[i] != '\0'; i++) {
+
+		//set the bitwise map to 1
+		bitwiseMap = 1;
+
+		//find out which letter we are on, shift the bitwisemap 1 to that location and determine if it is 1 or 0
+		//if it is 0 then we want to input 1 to represent a hit, if it is 1 then we want to print duplicate since its a duplicate
+		//Shift 1 to String1[i] - 97 spaces, then we want that to equal the new bitwiseMap value
+		bitwiseMap = bitwiseMap << (String1[i] - 97);
+
+		//Now the value 1 is shifted inside of bitwiseMap, compare it to valueStore, if 0 is there then include 1, if 1 is there then say its a duplicate
+		//We can use AND bitwise operator &, to determine if its on or not, if its 0 then its going to be off, if its 1 then its going to be on
+		if ((bitwiseMap & valueStore) > 0) {
+
+			std::cout << String1[i] << " is a duplicate." << '\n';
+
+		}
+		else {
+
+			valueStore = (bitwiseMap | valueStore);
+		}
+
+
+		};
+
+
+
+
+
+
+
+
+
+
+	return 0;
 
 
 
