@@ -39,6 +39,7 @@ int main() {
 	return 0;
 
 
+
 };
 
 
@@ -490,7 +491,41 @@ int main() {
 
 
 
+int main() {
 
+	//Reverse char by swap
+	//We need to scan, know the length
+
+	char A[] = "Python";
+
+	//temp char variable
+	char t;
+
+
+	//At the end
+	int j;
+	//At the beginning
+	int i;
+
+	for (j = 0; A[j] != '\0'; j++) {
+	};
+
+	j = j - 1;
+
+	for (i = 0; i < j; i++, j--) {
+
+		//need a temp in order to swap
+		t = A[j];
+		A[j] = A[i];
+		A[i] = t;
+
+	};
+
+	std::cout << A;
+	return 0;
+
+
+};
 
 
 
