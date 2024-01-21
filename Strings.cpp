@@ -15,8 +15,11 @@ void printASCII() {
 
 	}
 
-
 };
+
+
+
+
 
 
 
@@ -26,12 +29,49 @@ void printASCII() {
 
 int main() {
 
-	//ASCII code generator program, type in the letter and it should spit out the ascii code
-
-
-	 
-	printASCII();
 	
+	char String1[] = "finding";
+
+	//Create a hash table the length of lower case alphabets (26)
+	//Initialize all values to 0
+	int Hashtable[26] = { 0 };
+
+	//Create a for loop that iterates through the string, and incrementing the hashtable to keep count of the letters
+	//while the index does not equal the null character which is the end of the string
+	for (int i = 0; String1[i] != '\0'; i++) {
+		
+		//coult also just do += 1 but i want to type it out
+		Hashtable[String1[i] - 'a'] = Hashtable[String1[i] - 'a']++;
+		
+	 };
+
+	for (int i = 0; i < 26; i++) {
+		std::cout << Hashtable[i] << '\n';
+	}
+
+	//Extract the duplicates from the hashtable
+
+	for (int i = 0; i < 26; i++) {
+
+
+		if (Hashtable[i] > 1) {
+			std::cout << "Duplicate:  " << i + 97 <<'\n';
+
+			char Duplicate = i + 97;
+
+			std::cout << "Duplicate letter: " << Duplicate << '\n';
+		}
+	}
+
+
+
+
+
+
+
+	
+
+
 
 	return 0;
 };
