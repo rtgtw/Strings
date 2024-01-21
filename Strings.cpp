@@ -1,5 +1,24 @@
 #include <iostream>
 
+//Create a function that prints out the ascii code of a letter
+
+void printASCII() {
+
+	char value = 'a';
+
+	while (value != '!') {
+		std::cout << "Enter a value: ";
+		std::cin >> value;
+
+		std::cout << "ASCII Code: " << static_cast<int>(value) << '\n';
+		std::cout << "press \'!\' to quit" << '\n' << '\n';
+
+	}
+
+
+};
+
+
 
 
 
@@ -7,39 +26,14 @@
 
 int main() {
 
-	//Reverse char by swap
-	//We need to scan, know the length
+	//ASCII code generator program, type in the letter and it should spit out the ascii code
+
+
+	 
+	printASCII();
 	
-	char A[] = "Python";
 
-	//temp char variable
-	char t;
-
-
-	//At the end
-	int j;
-	//At the beginning
-	int i;
-
-	for (j = 0; A[j] != '\0'; j++) {
-	};
-
-	j = j - 1;
-
-	for (i = 0; i < j; i++, j--) {
-
-		//need a temp in order to swap
-		t = A[j];
-		A[j] = A[i];
-		A[i] = t;
-
-	};
-
-	std::cout << A;
 	return 0;
-
-
-
 };
 
 
@@ -539,6 +533,36 @@ int main() {
 
 
 
+	//Reverse char by swap
+	//We need to scan, know the length
+
+	char A[] = "Python";
+
+	//temp char variable
+	char t;
+
+
+	//At the end
+	int j;
+	//At the beginning
+	int i;
+
+	for (j = 0; A[j] != '\0'; j++) {
+	};
+
+	j = j - 1;
+
+	for (i = 0; i < j; i++, j--) {
+
+		//need a temp in order to swap
+		t = A[j];
+		A[j] = A[i];
+		A[i] = t;
+
+	};
+
+	std::cout << A;
+	return 0;
 
 
 
