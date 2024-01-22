@@ -29,56 +29,54 @@ void printASCII() {
 
 int main() {
 
-	
-//Look for a duplicate inside of a string using bitwise operators AND and OR
+	//Checking if two strings are anagrams
+	//Use a hash table to increment string variable 1, then decrement variable 2, if it = 0 then its an anagram
 
-//Create string that we will test to see if there is a duplicate 
-	char String1[] = "finding";
+	char String1[] = "decimal";
+	char String2[] = "medical";
+
+	//Hashtable should be 26 to represent all lowercase numbers
+	int hashtable[26] = { 0 };
+
+	int i;
 
 
 
-//Create an integer variable which we will use to insert bits to compare with the string
-// 4 bytes so 32 bits in total, initialize it to 0, to have all the bits be 0
-	int bitwiseMap = 0;
 
-//We need another integer variable that we will store the value of 1 or 0
-	int valueStore = 0;
-
-//Create a for loop which will iterate through the string 
-//Then we will set the bitwiseMap to 1 and shift the 1 to equal the letter of the string to set it inside of the bitwise map
-//If the letter already has a 1 then we know it is a duplicate and can print the value
 	for (int i = 0; String1[i] != '\0'; i++) {
 	
-		//set the bitwise map to 1
-		bitwiseMap = 1;
+		//Increment the hash table by 1
+		hashtable[String1[i] - 97] = hashtable[String1[i] - 97]++;
 
-		//find out which letter we are on, shift the bitwisemap 1 to that location and determine if it is 1 or 0
-		//if it is 0 then we want to input 1 to represent a hit, if it is 1 then we want to print duplicate since its a duplicate
-		//Shift 1 to String1[i] - 97 spaces, then we want that to equal the new bitwiseMap value
-		bitwiseMap = bitwiseMap << (String1[i] - 97);
+	};
 
-		//Now the value 1 is shifted inside of bitwiseMap, compare it to valueStore, if 0 is there then include 1, if 1 is there then say its a duplicate
-		//We can use AND bitwise operator &, to determine if its on or not, if its 0 then its going to be off, if its 1 then its going to be on
-		if ((bitwiseMap & valueStore) > 0) {
+	//for (int i = 0; i < 26; i++) {
+	//	std::cout << hashtable[i] << '\n';
+	//}
 
-			std::cout << String1[i] << " is a duplicate." << '\n';
 
+	//now we decrement string2 from the hash table
+
+	for (i = 0; String2[i] != '\0'; i++) {
+
+
+		//Decrement the hash table
+
+		hashtable[String2[i] - 97] = hashtable[String2[i] - 97]--;
+
+			if (hashtable[String2[i] - 97] < 0) {
+
+				std::cout << "Not an anagram";
+				break;
 		}
-		else {
 
-			valueStore = (bitwiseMap | valueStore);
-		}
-	
-	
-		};
+	};
 
-
-
-
-
+	if (String2[i] == '\0') {
+		std::cout << "Its an anagram" << '\n';
+	}
 
 	
-
 
 
 	return 0;
@@ -771,7 +769,60 @@ int main() {
 
 
 
+int main() {
 
+	//Checking if two strings are anagrams
+	//Use a hash table to increment string variable 1, then decrement variable 2, if it = 0 then its an anagram
+
+	char String1[] = "decimal";
+	char String2[] = "medical";
+
+	//Hashtable should be 26 to represent all lowercase numbers
+	int hashtable[26] = { 0 };
+
+	int i;
+
+
+
+
+	for (int i = 0; String1[i] != '\0'; i++) {
+
+		//Increment the hash table by 1
+		hashtable[String1[i] - 97] = hashtable[String1[i] - 97]++;
+
+	};
+
+	//for (int i = 0; i < 26; i++) {
+	//	std::cout << hashtable[i] << '\n';
+	//}
+
+
+	//now we decrement string2 from the hash table
+
+	for (i = 0; String2[i] != '\0'; i++) {
+
+
+		//Decrement the hash table
+
+		hashtable[String2[i] - 97] = hashtable[String2[i] - 97]--;
+
+			if (hashtable[String2[i] - 97] < 0) {
+
+				std::cout << "Not an anagram";
+				break;
+		}
+
+	};
+
+	if (String2[i] == '\0') {
+		std::cout << "Its an anagram" << '\n';
+	}
+
+
+
+
+	return 0;
+};
 
 
 
